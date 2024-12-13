@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Vacacional de España</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .flags {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .flags img {
+            width: 50px;
+            height: auto;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .question {
+            margin-bottom: 10px;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            text-align: left;
+        }
+        .signature {
+            border: 2px dashed #ccc;
+            padding: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        canvas {
+            border: 1px solid #ccc;
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div id="form-container" class="container">
+        <div class="flags">
+            <h1>Registro Vacacional de España</h1>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg" alt="Bandera de España">
+        </div>
+
+        <!-- Datos de la reserva -->
+        <div class="section">
+            <h2>Datos de la Reserva</h2>
+            <div class="question">
+                <label for="reserva-id">Identificador de la Reserva</label>
+                <input type="text" id="reserva-id" placeholder="Introduce el identificador">
+            </div>
+            <div class="question">
+                <label for="fecha-contrato">Fecha de Contrato/Reserva</label>
+                <input type="date" id="fecha-contrato">
+            </div>
+            <div class="question">
+                <label for="fecha-entrada">Fecha de Entrada</label>
+                <input type="date" id="fecha-entrada">
+            </div>
+            <div class="question">
+                <label for="fecha-salida">Fecha de Salida</label>
+                <input type="date" id="fecha-salida">
+            </div>
+            <div class="question">
+                <label for="tipo-pago">Tipo de Pago</label>
+                <input type="text" id="tipo-pago" placeholder="Introduce el tipo de pago">
+            </div>
+        </div>
+
+        <!-- Datos de cada viajero -->
+        <div class="section">
+            <h2>Datos de Cada Viajero</h2>
+            <div class="question">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" placeholder="Introduce el nombre">
+            </div>
+            <div class="question">
+                <label for="apellido1">Apellido 1</label>
+                <input type="text" id="apellido1" placeholder="Introduce el primer apellido">
+            </div>
+            <div class="question">
+                <label for="apellido2">Apellido 2</label>
+                <input type="text" id="apellido2" placeholder="Introduce el segundo apellido">
+            </div>
+            <div class="question">
+                <label for="tipo-documento">Tipo de Documento (DNI, Pasaporte, TIE)</label>
+                <input type="text" id="tipo-documento" placeholder="Introduce el tipo de documento">
+            </div>
+            <div class="question">
+                <label for="numero-documento">Número de Documento</label>
+                <input type="text" id="numero-documento" placeholder="Introduce el número de documento">
+            </div>
+            <div class="question">
+                <label for="numero-soporte">Número de Soporte del Documento (solo para DNI español)</label>
+                <input type="text" id="numero-soporte" placeholder="Introduce el número de soporte">
+            </div>
+            <div class="question">
+                <label for="fecha-nacimiento">Fecha de Nacimiento</label>
+                <input type="date" id="fecha-nacimiento">
+            </div>
+            <div class="question">
+                <label for="direccion">Dirección</label>
+                <input type="text" id="direccion" placeholder="Introduce la dirección">
+            </div>
+            <div class="question">
+                <label for="codigo-postal">Código Postal</label>
+                <input type="text" id="codigo-postal" placeholder="Introduce el código postal">
+            </div>
+            <div class="question">
+                <label for="provincia">Provincia</label>
+                <input type="text" id="provincia" placeholder="Introduce la provincia">
+            </div>
+            <div class="question">
+                <label for="municipio">Municipio</label>
+                <input type="text" id="municipio" placeholder="Introduce el municipio">
+            </div>
+            <div class="question">
+                <label for="pais">País</label>
+                <input type="text" id="pais" placeholder="Introduce el país">
+            </div>
+            <div class="question">
+                <<label for="telefono">Teléfono</label>
+                <input type="text" id="telefono" placeholder="Introduce el teléfono">
+            </div>
+            <div class="question">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Introduce el email">
+            </div>
+            <div class="question">
+                <label for="parentesco">Parentesco (para menores de edad)</label>
+                <input type="text" id="parentesco" placeholder="Introduce el parentesco">
+            </div>
+        </div>
+
+        <!-- Firma -->
+        <div class="signature">
+            <label for="firma">Firma / Signature / Unterschrift</label>
+            <canvas id="signature-pad" width="500" height="200"></canvas>
+            <button id="clear-signature">Borrar Firma</button>
+        </div>
+
+        <!-- Botón para finalizar -->
+        <button id="finalizar">Finalizar / Finish / Beenden</button>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('signature-pad');
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
+
+        function preventScroll(event) {
+            event.preventDefault();
+        }
+
+        function startDrawing(e) {
+            isDrawing = true;
+            const rect = canvas.getBoundingClientRect();
+            ctx.beginPath();
+            ctx.moveTo(
+                (e.touches ? e.touches[0].clientX : e.offsetX) - rect.left,
+                (e.touches ? e.touches[0].clientY : e.offsetY) - rect.top
+            );
+            document.body.addEventListener('touchmove', preventScroll, { passive: false });
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            const rect = canvas.getBoundingClientRect();
+            ctx.lineTo(
+                (e.touches ? e.touches[0].clientX : e.offsetX) - rect.left,
+                (e.touches ? e.touches[0].clientY : e.offsetY) - rect.top
+            );
+            ctx.stroke();
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+            document.body.removeEventListener('touchmove', preventScroll);
+        }
+
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+
+        canvas.addEventListener('touchstart', startDrawing);
+        canvas.addEventListener('touchmove', draw);
+        canvas.addEventListener('touchend', stopDrawing);
+
+        document.getElementById('clear-signature').addEventListener('click', () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        });
+
+        document.getElementById('finalizar').addEventListener('click', function () {
+            const formContainer = document.getElementById('form-container');
+            html2canvas(formContainer).then(canvas => {
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/jpeg');
+                link.download = 'registro_vacacional.jpg';
+                link.click();
+                alert('El documento con la firma ha sido guardado como imagen.');
+            });
+        });
+    </script>
+</body>
+</html>
